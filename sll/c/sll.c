@@ -135,8 +135,9 @@ Node *sll_search_node(uint8_t val, SLL *sll) {
 }
 
 
-void sll_append_after(uint8_t val, SLL *sll) {
-	Node *n = sll_search_node(val, sll);
+// adds a node with val *val* after the first node with val *search*. otherwise doesnt add.
+void sll_add_after(uint8_t search, uint8_t val, SLL *sll) {
+	Node *n = sll_search_node(search, sll);
 
 	if (n) {
 		Node *temp = node_create(val);
@@ -148,6 +149,7 @@ void sll_append_after(uint8_t val, SLL *sll) {
 }
 
 
+// reverses a sll
 void sll_reverse(SLL *sll) {
 }
 

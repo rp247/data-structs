@@ -37,6 +37,13 @@ int main(){
 	printf("%s. ", sll_search_node(10, sll) ? "(10) FOUND" : "(10) NOT FOUND");
 	printf("%s.\n", sll_search_node(0, sll) ? "(0) FOUND" : "(0) NOT FOUND");
 
+	printf("ADD AFTER TEST: ");
+	sll_add_after(0, 252, sll);
+	sll_add_after(147, 241, sll);
+	sll_add_after(91, 232, sll);
+	sll_add_after(255, 1, sll);
+	sll_print(sll);
+
 	sll_delete(&sll);			// delete test
 
 	sll_print(sll);
