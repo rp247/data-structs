@@ -2,8 +2,8 @@
 #include "node.h"
 
 #include <stdio.h>
-#include <stdint.h>
 #include <stdlib.h>
+#include <inttypes.h>
 
 // Singly Linked List definition
 struct SLL {
@@ -48,6 +48,60 @@ void sll_delete(SLL **sll) {
 
 		free(*sll);
 		*sll = NULL;
+	}
+
+	return;
+}
+
+
+// prepends a node.
+void sll_prepend(uint8_t val, SLL *sll) {
+	
+	if (sll) {
+		Node *n = node_create(val);
+		if (n) {
+			n->next = sll->head->next; // between head and first node
+			sll->head->next = n;
+		}
+	}
+
+	return;
+
+}
+
+
+// appends a node
+void sll_append(uint8_t val, SLL *sll) {
+	
+	if (sll) {
+		Node *n = node_create(val);
+		if (n) {
+			Node *temp = sll->head;
+			while(temp->next != sll->tail) {	// get to one before tail
+				temp = temp->next;
+			}
+			n->next = temp->next;			// attach in between
+			temp->next = n;
+		}
+	}
+
+	return;
+}	
+
+
+// prints a sll
+void sll_print(SLL *sll) {
+	if (sll) {
+		printf("HEAD->");
+		
+		Node *temp = sll->head;
+		while (temp->next != sll->tail) {
+			temp = temp->next;
+			printf("%" PRIu8 "->", temp->val);
+		}
+
+		
+		printf("TAIL.\n");
 	}
 
 	return;
