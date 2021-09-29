@@ -136,6 +136,15 @@ Node *sll_search_node(uint8_t val, SLL *sll) {
 
 
 void sll_append_after(uint8_t val, SLL *sll) {
+	Node *n = sll_search_node(val, sll);
+
+	if (n) {
+		Node *temp = node_create(val);
+		temp->next = n->next;
+		n->next = temp;
+	}
+
+	return;
 }
 
 
