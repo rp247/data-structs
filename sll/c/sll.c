@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <inttypes.h>
+#include <stdbool.h>
 
 /* 
  * to do:
@@ -112,6 +113,33 @@ void sll_node_delete(uint8_t val, SLL *sll) {
 	}
 	
 	return;
+}
+
+
+// searches for the first node with val *val*
+Node *sll_search_node(uint8_t val, SLL *sll) {
+	if (!sll) return NULL;
+
+	Node *temp = sll->head;
+	bool found = false;
+
+	while (temp->next != sll->tail) {
+		temp = temp->next;	
+		if (temp->val == val) {
+			found = true;
+			break;
+		}
+	}
+
+	return found ? temp : NULL;
+}
+
+
+void sll_append_after(uint8_t val, SLL *sll) {
+}
+
+
+void sll_reverse(SLL *sll) {
 }
 
 
