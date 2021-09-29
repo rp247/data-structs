@@ -24,13 +24,18 @@ int main(){
 	printf("DELETE TEST: ");		// delete test
 	sll_node_delete(10, sll);
 	sll_node_delete(55, sll);
-	sll_node_delete(0, sll);
+	//sll_node_delete(0, sll);
 	sll_node_delete(147, sll);
 	//sll_node_delete(91, sll);
 	//sll_node_delete(255, sll);
 	//sll_node_delete(0, sll);
 	//sll_node_delete(84, sll);
 	sll_print(sll);
+
+	printf("SEARCH TEST: ");
+	printf("%s. ", sll_search_node(91, sll) ? "(91) FOUND" : "(91) NOT FOUND");
+	printf("%s. ", sll_search_node(10, sll) ? "(10) FOUND" : "(10) NOT FOUND");
+	printf("%s.\n", sll_search_node(0, sll) ? "(0) FOUND" : "(0) NOT FOUND");
 
 	sll_delete(&sll);			// delete test
 

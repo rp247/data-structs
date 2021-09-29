@@ -1,6 +1,8 @@
 #ifndef SLL_H__
 #define SLL_H__
 
+#include "node.h"
+
 #include <inttypes.h>
 
 typedef struct SLL SLL;
