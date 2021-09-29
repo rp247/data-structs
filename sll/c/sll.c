@@ -5,6 +5,12 @@
 #include <stdlib.h>
 #include <inttypes.h>
 
+/* 
+ * to do:
+ * add time complexities
+ * more algorithms for sll
+ */
+
 // Singly Linked List definition
 struct SLL {
 	Node *head;
@@ -87,6 +93,24 @@ void sll_append(uint8_t val, SLL *sll) {
 
 	return;
 }	
+
+
+// deletes first node with val *val*. sentinental nodes do no count.
+void sll_node_delete(uint8_t val, SLL *sll) {
+	if (sll) {
+		Node *temp = sll->head;
+
+		while (temp->next != sll->tail) {
+			if (temp->next->val == val) {
+				Node *temp2 = temp->next;	// for freeing mem
+				temp->next = temp->next->next;
+				node_delete(&temp2);
+			}
+		}
+	}
+	
+	return;
+}
 
 
 // prints a sll
