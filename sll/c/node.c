@@ -1,12 +1,9 @@
-#include <stdio.h>
-#include <stddef.h>
-#include <stdlib.h>
+#include "node.h"
 
-// Each Nodes of the SLL have this form
-struct Node {
-	Node *next;
-	uint8_t val;
-};
+#include <stdio.h>
+#include <stdlib.h>
+#include <inttypes.h>
+
 
 // constructor
 Node *node_create(uint8_t val) {
@@ -34,3 +31,16 @@ void node_delete(Node **n) {
 
 	return;
 }
+
+
+// print node
+void node_print(Node *n) {
+
+	if (n) {
+		printf("Val: %" PRIu8 ". Next: %p.\n", n->val, n->next);
+	}
+
+	return;
+
+}
+
