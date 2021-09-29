@@ -1,6 +1,8 @@
 #ifndef NODE_H__
 #define NODE_H__
 
+#include <stdint.h>
+
 typedef struct Node Node;
 
 // Each Nodes of the SLL have this form. Defined here so n->next and n->val can be directly accessed.
