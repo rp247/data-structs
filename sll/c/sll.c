@@ -30,3 +30,21 @@ SLL *sll_create() {
 }
 
 
+// destructor
+void sll_delete(SLL **sll) {
+
+	if (sll && *sll) {
+
+		Node *prev = sll->head;
+		Node *curr = sll->head->next;
+
+		while (curr != sll->tail) {
+			node_delete(&prev);
+			prev = curr;
+			curr = curr->next;
+		}
+
+		node_delete(&sll->tail);
+	}
+}
+
