@@ -14,15 +14,15 @@ struct SLL {
 // constructor
 SLL *sll_create() {
 
-	SLL *sll = (SLL *) malloc(sizeof(SLLL));
+	SLL *sll = (SLL *) malloc(sizeof(SLL));
 
 	if (sll) {
 		
 		// sentinental nodes
-		Node *head = node_create(0);
-		Node *tail = node_create(0);
+		sll->head = node_create(0);
+		sll->tail = node_create(0);
 
-		head->next = tail;
+		sll->head->next = sll->tail;
 	}
 
 	return sll;
@@ -35,16 +35,21 @@ void sll_delete(SLL **sll) {
 
 	if (sll && *sll) {
 
-		Node *prev = sll->head;
-		Node *curr = sll->head->next;
+		Node *prev = (*sll)->head;
+		Node *curr = (*sll)->head->next;
 
-		while (curr != sll->tail) {
+		while (curr != NULL) {
 			node_delete(&prev);
 			prev = curr;
 			curr = curr->next;
 		}
 
-		node_delete(&sll->tail);
+		node_delete(&((*sll)->tail));
+
+		free(*sll);
+		*sll = NULL;
 	}
+
+	return;
 }
 
