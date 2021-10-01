@@ -152,16 +152,20 @@ void sll_add_after(uint8_t search, uint8_t val, SLL *sll) {
 // reverses a sll
 void sll_reverse(SLL *sll) {
 
-	Node *prev = sll->head, *nn = sll->head, *nexxt = sll->head, *temp;
+	Node *prev = sll->head, *nn = sll->head->next, *nexxt = sll->head;
 
 
-		while (nexxt->next != NULL && prev->next->next != NULL) {
-			prev->next = nexxt;
-			temp = prev->next->next; nexxt = prev->next->next; nn = prev->next;
+		while (nexxt != NULL) {
+			nexxt = nn->next;
 			nn->next = prev;
-			prev = nexxt->next;
-			nexxt->next = nn;
+			prev = nn;
+			nn = nexxt;
 		}
+
+	Node *temp;
+	temp = sll->head;
+	sll->head = sll->tail;
+	sll->tail = temp;
 
 
 	return;
