@@ -45,12 +45,13 @@ void sll_delete(SLL **sll) {
 		Node *prev = (*sll)->head;
 		Node *curr = (*sll)->head->next;
 
-		while (curr != NULL) {
+		while (curr != (*sll)->tail) {
 			node_delete(&prev);
 			prev = curr;
 			curr = curr->next;
 		}
 
+		node_delete(&prev);
 		node_delete(&((*sll)->tail));
 
 		free(*sll);
@@ -155,6 +156,7 @@ void sll_reverse(SLL *sll) {
 	Node *prev = sll->head, *nn = sll->head->next, *nexxt = sll->head;
 
 
+		// understood from geek4geeks
 		while (nexxt != NULL) {
 			nexxt = nn->next;
 			nn->next = prev;

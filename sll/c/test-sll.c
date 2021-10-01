@@ -44,7 +44,12 @@ int main(){
 	sll_add_after(255, 1, sll);
 	sll_print(sll);
 
+	printf("REVERSE TEST: ");
+	sll_reverse(sll);
+	sll_print(sll);
+
 	sll_delete(&sll);			// delete test
+	sll_delete(&sll);			
 
 	sll_print(sll);
 }
